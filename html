@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Calendario</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://unpkg.com/@panzoom/panzoom/dist/panzoom.min.js"></script>
+</head>
+<body>
+
+<div class="toolbar">
+    <button id="zoomIn">+</button>
+    <button id="zoomOut">-</button>
+    <button id="reset">Reset</button>
+</div>
+
+<div id="viewport">
+
+    <div id="panzoom-element">
+
+        <iframe
+            src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQlweGRWn_9ZXGpgb52qJ04Kmo4s3kKtNA3sFeo2NnVW4lznmXhpIdna_HST5BhmaeUEfKv2Y8ktkqf/pubhtml?gid=1414082760&single=true"
+            frameborder="0">
+        </iframe>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
