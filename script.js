@@ -1,26 +1,8 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const elem = document.getElementById("panzoom-element");
-    const viewport = document.getElementById("viewport");
+// Este script.js puede estar vacío o contener otros scripts necesarios para tu página.
+// Hemos eliminado toda la lógica de Panzoom para utilizar el desplazamiento nativo del navegador.
 
-    const panzoom = Panzoom(elem, {
-        maxScale: 3,
-        minScale: 0.15,
-        startScale: 0.38, // Escala inicial pequeña para que entre casi todo en el celular
-        contain: 'outside'
-    });
+// Si quieres una escala inicial pequeña en el móvil, puedes usar un poco de CSS adicional
+// para hacer un zoom-out inicial en el contenedor, pero esto puede complicar los links.
+// La mejor experiencia de usuario es dejar que el usuario se mueva por el calendario gigante.
 
-    // Centrado inicial para móviles
-    panzoom.pan(-450, -50);
-
-    // Zoom con la rueda del ratón (PC)
-    viewport.addEventListener("wheel", panzoom.zoomWithWheel);
-
-    // Botones de control
-    document.getElementById("zoomIn").addEventListener("click", () => panzoom.zoomIn());
-    document.getElementById("zoomOut").addEventListener("click", () => panzoom.zoomOut());
-    document.getElementById("reset").addEventListener("click", () => {
-        panzoom.reset();
-        panzoom.zoom(0.38);
-        panzoom.pan(-450, -50);
-    });
-});
+console.log("Página cargada con desplazamiento nativo.");
