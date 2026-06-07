@@ -1,35 +1,51 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-    overflow:hidden;
+body {
+    overflow: hidden;
+    background-color: #f0f0f0;
+    font-family: sans-serif;
 }
 
-.toolbar{
-    position:fixed;
-    top:10px;
-    left:10px;
-    z-index:9999;
-    display:flex;
-    gap:5px;
+.toolbar {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 9999;
+    display: flex;
+    gap: 5px;
 }
 
-#viewport{
-    width:100vw;
-    height:100vh;
-    overflow:hidden;
+.toolbar button {
+    padding: 10px 15px;
+    font-size: 16px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
-#panzoom-element{
-    width:1800px;
-    height:1400px;
+#viewport {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
 }
 
-iframe{
-    width:1800px;
-    height:1400px;
-    border:none;
+/* Este es el lienzo gigante que se moverá */
+#panzoom-element {
+    width: 1800px;
+    height: 1400px;
+    background: white;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    /* CRÍTICO PARA MÓVILES: Evita que el iframe robe los gestos "touch" del Panzoom */
+    pointer-events: none; 
 }
