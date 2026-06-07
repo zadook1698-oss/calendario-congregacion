@@ -6,8 +6,8 @@
 
 body {
     overflow: hidden;
-    background-color: #f0f0f0;
-    font-family: sans-serif;
+    background-color: #f7f9fa;
+    font-family: system-ui, -apple-system, sans-serif;
 }
 
 .toolbar {
@@ -16,16 +16,34 @@ body {
     left: 10px;
     z-index: 9999;
     display: flex;
-    gap: 5px;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 8px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 .toolbar button {
-    padding: 10px 15px;
-    font-size: 16px;
-    background: white;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: bold;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
     cursor: pointer;
+}
+
+.toolbar button:active {
+    background: #0056b3;
+}
+
+.instruccion {
+    font-size: 11px;
+    color: #555;
+    max-width: 150px;
+    line-height: 1.2;
 }
 
 #viewport {
@@ -35,10 +53,10 @@ body {
     position: relative;
 }
 
-/* Este es el lienzo gigante que se moverá */
+/* Lienzo lo suficientemente grande para que el Excel no se "envuelva" ni se corte */
 #panzoom-element {
-    width: 1800px;
-    height: 1400px;
+    width: 2100px;  /* Más ancho para evitar que las fotos se desordenen */
+    height: 2200px; /* Más alto para que se vean todas las semanas posteriores al 15 */
     background: white;
 }
 
@@ -46,6 +64,6 @@ iframe {
     width: 100%;
     height: 100%;
     border: none;
-    /* CRÍTICO PARA MÓVILES: Evita que el iframe robe los gestos "touch" del Panzoom */
-    pointer-events: none; 
+    /* RE-ACTIVAMOS LOS LINKS: Ahora el usuario puede pinchar las direcciones */
+    pointer-events: auto; 
 }
