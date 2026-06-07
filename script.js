@@ -1,43 +1,28 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+const elem = document.getElementById("panzoom-element");
 
-body{
-    overflow:hidden;
-    font-family:Arial, sans-serif;
-}
+const panzoom = Panzoom(elem, {
+    maxScale: 5,
+    minScale: 0.2,
+    startScale: 0.35
+});
 
-.toolbar{
-    position:fixed;
-    top:10px;
-    left:10px;
-    z-index:9999;
-    display:flex;
-    gap:10px;
-}
+panzoom.pan(50, 50);
 
-.toolbar button{
-    padding:10px 15px;
-    font-size:18px;
-    cursor:pointer;
-}
+document
+  .getElementById("viewport")
+  .addEventListener("wheel", panzoom.zoomWithWheel);
 
-#viewport{
-    width:100vw;
-    height:100vh;
-    overflow:hidden;
-    background:#f0f0f0;
-}
+document
+  .getElementById("zoomIn")
+  .addEventListener("click", () => panzoom.zoomIn());
 
-#panzoom-element{
-    width:1600px;
-    height:1200px;
-}
+document
+  .getElementById("zoomOut")
+  .addEventListener("click", () => panzoom.zoomOut());
 
-iframe{
-    width:1600px;
-    height:1200px;
-    border:none;
-}
+document
+  .getElementById("reset")
+  .addEventListener("click", () => {
+      panzoom.reset();
+      panzoom.zoom(0.35);
+  });
