@@ -1,27 +1,33 @@
-/* Estilo base (para PC - Pantallas grandes) */
-#scrollable-content {
-    width: 2100px; /* Tamaño real de tu calendario */
-    height: 2200px;
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Evita doble scroll */
+}
+
+.calendario-contenedor {
+    width: 100vw;
+    height: 100vh;
+    overflow: auto; /* Esto permite mover el contenido que se sale de la pantalla */
+    -webkit-overflow-scrolling: touch; /* Suavidad tipo iPhone */
+    touch-action: pan-x pan-y; /* Permitir movimiento en ambos ejes */
 }
 
 iframe {
-    width: 100%;
-    height: 100%;
+    width: 2100px; /* Ancho fijo de tu diseño */
+    height: 2200px; /* Alto fijo de tu diseño */
     border: none;
+    pointer-events: auto; /* Mantiene los links vivos */
 }
 
-/* ESTO HACE LA PÁGINA REACTIVA */
-/* Si la pantalla mide menos de 800px (celulares y tablets) */
-@media (max-width: 800px) {
-    #scrollable-content {
-        /* Aquí podemos reducir la escala del contenido para que se vea más "desde lejos" */
-        transform: scale(0.6); 
+/* Ajuste para pantallas pequeñas */
+@media (max-width: 600px) {
+    iframe {
+        /* Opcional: Escala el diseño original al 50% para verlo "desde lejos" al iniciar */
+        transform: scale(0.5);
         transform-origin: top left;
-        width: 1400px; /* Ajustamos el contenedor al zoom */
-        height: 1500px;
-    }
-    
-    body {
-        overflow: auto; /* Permite que el celular se mueva por el contenido */
+        width: 1050px; 
+        height: 1100px;
     }
 }
