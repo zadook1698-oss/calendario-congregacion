@@ -1,22 +1,27 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    background-color: #f7f9fa;
-}
-
-/* El truco: Medidas mucho más grandes que el calendario real */
+/* Estilo base (para PC - Pantallas grandes) */
 #scrollable-content {
-    width: 4000px;
-    height: 4000px;
+    width: 2100px; /* Tamaño real de tu calendario */
+    height: 2200px;
 }
 
 iframe {
     width: 100%;
     height: 100%;
     border: none;
-    pointer-events: auto; /* Mantiene los enlaces activos para que funcionen con un toque */
+}
+
+/* ESTO HACE LA PÁGINA REACTIVA */
+/* Si la pantalla mide menos de 800px (celulares y tablets) */
+@media (max-width: 800px) {
+    #scrollable-content {
+        /* Aquí podemos reducir la escala del contenido para que se vea más "desde lejos" */
+        transform: scale(0.6); 
+        transform-origin: top left;
+        width: 1400px; /* Ajustamos el contenedor al zoom */
+        height: 1500px;
+    }
+    
+    body {
+        overflow: auto; /* Permite que el celular se mueva por el contenido */
+    }
 }
