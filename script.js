@@ -1,28 +1,26 @@
-// Esperar a que el DOM esté listo
 document.addEventListener("DOMContentLoaded", () => {
     const elem = document.getElementById("panzoom-element");
     const viewport = document.getElementById("viewport");
 
-    // Inicializar Panzoom
     const panzoom = Panzoom(elem, {
-        maxScale: 5,
-        minScale: 0.1,
-        startScale: 0.35, // Ajusta esto según qué tan pequeño quieras que inicie en el celular
-        contain: 'outside' // Evita que se pierda el contenido fuera de la pantalla
+        maxScale: 3,
+        minScale: 0.15,
+        startScale: 0.38, // Escala inicial pequeña para que entre casi todo en el celular
+        contain: 'outside'
     });
 
-    // Forzar un centrado inicial aproximado
-    panzoom.pan(-200, -100);
+    // Centrado inicial para móviles
+    panzoom.pan(-450, -50);
 
     // Zoom con la rueda del ratón (PC)
     viewport.addEventListener("wheel", panzoom.zoomWithWheel);
 
-    // Eventos de los botones de la barra de herramientas
+    // Botones de control
     document.getElementById("zoomIn").addEventListener("click", () => panzoom.zoomIn());
     document.getElementById("zoomOut").addEventListener("click", () => panzoom.zoomOut());
     document.getElementById("reset").addEventListener("click", () => {
         panzoom.reset();
-        panzoom.zoom(0.35);
-        panzoom.pan(-200, -100);
+        panzoom.zoom(0.38);
+        panzoom.pan(-450, -50);
     });
 });
