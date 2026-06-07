@@ -4,36 +4,36 @@
     box-sizing: border-box;
 }
 
-body {
-    /* Permitimos el desplazamiento nativo del body si es necesario, pero en este caso, el desplazamiento será dentro del viewport */
+html, body {
+    width: 100%;
+    height: 100%;
+    /* Permitimos que el navegador gestione los gestos de zoom nativos del usuario */
+    touch-action: manipulation; 
     background-color: #f7f9fa;
-    font-family: system-ui, -apple-system, sans-serif;
-    overscroll-behavior: none; /* Previene el efecto de "rebote" al final del scroll */
 }
 
-/* El contenedor que ocupa toda la pantalla */
+/* El contenedor de la pantalla */
 #viewport {
     width: 100vw;
     height: 100vh;
-    overflow: auto; /* IMPORTANTE: Permite barras de desplazamiento nativas */
-    -webkit-overflow-scrolling: touch; /* Suaviza el desplazamiento en iOS */
-    position: relative;
+    /* Fuerza a que aparezcan barras tanto verticales como horizontales si el contenido es grande */
+    overflow: auto; 
+    /* Suaviza el movimiento en iPhones/Safari */
+    -webkit-overflow-scrolling: touch; 
 }
 
-/* El elemento gigante que se va a desplazar */
+/* El lienzo gigante con el calendario */
 #scrollable-content {
-    /* Dimensiones fijas para que quepa todo el calendario */
     width: 2100px;
     height: 2200px;
     background: white;
-    /* Un pequeño padding opcional para el borde */
-    padding: 20px;
+    padding: 10px;
 }
 
 iframe {
     width: 100%;
     height: 100%;
     border: none;
-    /* Links activos y clickeables de forma nativa */
+    /* Mantiene los links totalmente operativos */
     pointer-events: auto; 
 }
