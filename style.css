@@ -4,24 +4,23 @@
     box-sizing: border-box;
 }
 
+html,
 body {
-    background: #f7f9fa;
-    overflow: hidden; /* evita doble scroll */
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: #f7f9fa;
+    -webkit-overflow-scrolling: touch;
 }
 
 #scrollable-content {
-    width: 100vw;
-    height: 100vh;
-
-    overflow-x: auto;
-    overflow-y: auto;
-
-    -webkit-overflow-scrolling: touch; /* scroll suave en iPhone */
+    width: 2100px;
+    height: 2200px;
 }
 
 iframe {
-    width: 2100px;
-    height: 2200px;
+    width: 100%;
+    height: 100%;
     border: none;
     display: block;
 }
