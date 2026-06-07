@@ -1,8 +1,19 @@
-// Este script.js puede estar vacío o contener otros scripts necesarios para tu página.
-// Hemos eliminado toda la lógica de Panzoom para utilizar el desplazamiento nativo del navegador.
+document.addEventListener("DOMContentLoaded", () => {
+    const btnModo = document.getElementById("btn-modo");
+    const body = document.body;
 
-// Si quieres una escala inicial pequeña en el móvil, puedes usar un poco de CSS adicional
-// para hacer un zoom-out inicial en el contenedor, pero esto puede complicar los links.
-// La mejor experiencia de usuario es dejar que el usuario se mueva por el calendario gigante.
-
-console.log("Página cargada con desplazamiento nativo.");
+    btnModo.addEventListener("click", () => {
+        // Si estamos en modo mover, pasamos a modo links
+        if (body.classList.contains("modo-mover")) {
+            body.classList.remove("modo-mover");
+            body.classList.add("modo-links");
+            btnModo.innerHTML = "🔗 Modo: Hacer Clic";
+        } 
+        // Si estamos en modo links, volvemos a modo mover
+        else {
+            body.classList.remove("modo-links");
+            body.classList.add("modo-mover");
+            btnModo.innerHTML = "✋ Modo: Mover";
+        }
+    });
+});
