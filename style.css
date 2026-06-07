@@ -5,65 +5,35 @@
 }
 
 body {
-    overflow: hidden;
+    /* Permitimos el desplazamiento nativo del body si es necesario, pero en este caso, el desplazamiento será dentro del viewport */
     background-color: #f7f9fa;
     font-family: system-ui, -apple-system, sans-serif;
+    overscroll-behavior: none; /* Previene el efecto de "rebote" al final del scroll */
 }
 
-.toolbar {
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(255, 255, 255, 0.95);
-    padding: 8px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
-
-.toolbar button {
-    padding: 8px 12px;
-    font-size: 14px;
-    font-weight: bold;
-    background: #007bff;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-.toolbar button:active {
-    background: #0056b3;
-}
-
-.instruccion {
-    font-size: 11px;
-    color: #555;
-    max-width: 150px;
-    line-height: 1.2;
-}
-
+/* El contenedor que ocupa toda la pantalla */
 #viewport {
     width: 100vw;
     height: 100vh;
-    overflow: hidden;
+    overflow: auto; /* IMPORTANTE: Permite barras de desplazamiento nativas */
+    -webkit-overflow-scrolling: touch; /* Suaviza el desplazamiento en iOS */
     position: relative;
 }
 
-/* Lienzo lo suficientemente grande para que el Excel no se "envuelva" ni se corte */
-#panzoom-element {
-    width: 2100px;  /* Más ancho para evitar que las fotos se desordenen */
-    height: 2200px; /* Más alto para que se vean todas las semanas posteriores al 15 */
+/* El elemento gigante que se va a desplazar */
+#scrollable-content {
+    /* Dimensiones fijas para que quepa todo el calendario */
+    width: 2100px;
+    height: 2200px;
     background: white;
+    /* Un pequeño padding opcional para el borde */
+    padding: 20px;
 }
 
 iframe {
     width: 100%;
     height: 100%;
     border: none;
-    /* RE-ACTIVAMOS LOS LINKS: Ahora el usuario puede pinchar las direcciones */
+    /* Links activos y clickeables de forma nativa */
     pointer-events: auto; 
 }
