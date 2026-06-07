@@ -5,19 +5,23 @@
 }
 
 body {
-    background-color: #f7f9fa;
-    /* Al no poner restricciones aquí, el navegador móvil activa su scroll nativo 360° */
+    background: #f7f9fa;
+    overflow: hidden; /* evita doble scroll */
 }
 
 #scrollable-content {
-    /* Mantenemos el tamaño gigante fijo para que Google Sheets no intente apilar el calendario */
-    width: 2100px;
-    height: 2200px;
+    width: 100vw;
+    height: 100vh;
+
+    overflow-x: auto;
+    overflow-y: auto;
+
+    -webkit-overflow-scrolling: touch; /* scroll suave en iPhone */
 }
 
 iframe {
-    width: 100%;
-    height: 100%;
+    width: 2100px;
+    height: 2200px;
     border: none;
-    pointer-events: auto; /* Mantiene los links funcionando al 100% */
+    display: block;
 }
