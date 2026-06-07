@@ -4,36 +4,20 @@
     box-sizing: border-box;
 }
 
-html, body {
-    width: 100%;
-    height: 100%;
-    /* Permitimos que el navegador gestione los gestos de zoom nativos del usuario */
-    touch-action: manipulation; 
+body {
     background-color: #f7f9fa;
+    /* Al no poner restricciones aquí, el navegador móvil activa su scroll nativo 360° */
 }
 
-/* El contenedor de la pantalla */
-#viewport {
-    width: 100vw;
-    height: 100vh;
-    /* Fuerza a que aparezcan barras tanto verticales como horizontales si el contenido es grande */
-    overflow: auto; 
-    /* Suaviza el movimiento en iPhones/Safari */
-    -webkit-overflow-scrolling: touch; 
-}
-
-/* El lienzo gigante con el calendario */
 #scrollable-content {
+    /* Mantenemos el tamaño gigante fijo para que Google Sheets no intente apilar el calendario */
     width: 2100px;
     height: 2200px;
-    background: white;
-    padding: 10px;
 }
 
 iframe {
     width: 100%;
     height: 100%;
     border: none;
-    /* Mantiene los links totalmente operativos */
-    pointer-events: auto; 
+    pointer-events: auto; /* Mantiene los links funcionando al 100% */
 }
