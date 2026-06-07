@@ -1,29 +1,35 @@
-const elem = document.getElementById("panzoom-element");
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-const panzoom = Panzoom(elem, {
-    maxScale: 5,
-    minScale: 0.3,
-    contain: "outside"
-});
+body{
+    overflow:hidden;
+}
 
-document
-    .getElementById("viewport")
-    .addEventListener("wheel", panzoom.zoomWithWheel);
+.toolbar{
+    position:fixed;
+    top:10px;
+    left:10px;
+    z-index:9999;
+    display:flex;
+    gap:5px;
+}
 
-document
-    .getElementById("zoomIn")
-    .addEventListener("click", () => {
-        panzoom.zoomIn();
-    });
+#viewport{
+    width:100vw;
+    height:100vh;
+    overflow:hidden;
+}
 
-document
-    .getElementById("zoomOut")
-    .addEventListener("click", () => {
-        panzoom.zoomOut();
-    });
+#panzoom-element{
+    width:1800px;
+    height:1400px;
+}
 
-document
-    .getElementById("reset")
-    .addEventListener("click", () => {
-        panzoom.reset();
-    });
+iframe{
+    width:1800px;
+    height:1400px;
+    border:none;
+}
