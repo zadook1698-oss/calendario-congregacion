@@ -1,6 +1,6 @@
 const wrapper = document.getElementById("sheet-wrapper");
 
-let scale = 1;
+let scale = 0.4;
 
 function updateZoom() {
     wrapper.style.transform = `scale(${scale})`;
