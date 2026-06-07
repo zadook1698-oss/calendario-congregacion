@@ -1,13 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>Prueba</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Prueba Panzoom</title>
+    
+    <script src="https://unpkg.com/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <iframe
-        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQlweGRWn_9ZXGpgb52qJ04Kmo4s3kKtNA3sFeo2NnVW4lznmXhpIdna_HST5BhmaeUEfKv2Y8ktkqf/pubhtml?gid=1414082760&single=true"
-        width="100%"
-        height="900">
-    </iframe>
+
+    <div class="toolbar">
+        <button id="zoomIn">+</button>
+        <button id="zoomOut">-</button>
+        <button id="reset">Reset</button>
+    </div>
+
+    <div id="viewport">
+        <div id="panzoom-element">
+            <iframe 
+                src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQlweGRWn_9ZXGpgb52qJ04Kmo4s3kKtNA3sFeo2NnVW4lznmXhpIdna_HST5BhmaeUEfKv2Y8ktkqf/pubhtml?gid=1414082760&single=true">
+            </iframe>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
