@@ -8,19 +8,17 @@ html,
 body {
     width: 100%;
     height: 100%;
-    overflow: auto;
+    overflow: hidden;
     background-color: #f7f9fa;
-    -webkit-overflow-scrolling: touch;
 }
 
-#scrollable-content {
-    width: 2100px;
-    height: 2200px;
+.iframe-container {
+    width: 100vw;
+    height: 100vh;
 }
 
 iframe {
     width: 100%;
     height: 100%;
     border: none;
-    display: block;
 }
