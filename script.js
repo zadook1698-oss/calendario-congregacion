@@ -29,8 +29,4 @@ document.getElementById("zoom-out").addEventListener("click", () => {
     updateZoom();
 });
 
-document.getElementById("reload").addEventListener("click", () => {
-    location.reload();
-});
-
 updateZoom();
